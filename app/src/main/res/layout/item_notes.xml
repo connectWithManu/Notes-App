@@ -64,7 +64,7 @@
             android:padding="5dp"
             android:text="TextView"
             android:textColor="#0D47A1"
-            android:textSize="14sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/subtitle"
             app:layout_constraintEnd_toStartOf="@+id/prirority"
             app:layout_constraintHorizontal_bias="0.0"

@@ -1,16 +1,20 @@
 package com.manu.notesapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.manu.notesapp.R
 import com.manu.notesapp.databinding.FragmentHomeBinding
+import com.manu.notesapp.viewmodel.NotesViewModel
 
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
+    val notesViewModel: NotesViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +30,12 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_createNotesFragment)
         }
 
+        notesViewModel.getNotes().observe(viewLifecycleOwner) {noteList ->
+            for( i in noteList) {
+                Log.e("TAG", "onViewCreated: ${i.id}", )
+            }
+
+        }
 
     }
 

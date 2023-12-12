@@ -10,7 +10,12 @@ import com.manu.notesapp.databinding.ItemNotesBinding
 import com.manu.notesapp.fragments.HomeFragmentDirections
 import com.manu.notesapp.model.Notes
 
-class NotesAdapter(val context: Context, val notesList: List<Notes>): RecyclerView.Adapter<NotesAdapter.NotesVH>() {
+class NotesAdapter(val context: Context, var notesList: List<Notes>): RecyclerView.Adapter<NotesAdapter.NotesVH>() {
+
+    fun filter(newFilteredList: ArrayList<Notes>) {
+        notesList = newFilteredList
+        notifyDataSetChanged()
+    }
     inner class NotesVH(val binding: ItemNotesBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesVH {

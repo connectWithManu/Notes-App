@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.manu.notesapp.R
 import com.manu.notesapp.databinding.FragmentCreateNotesBinding
 import com.manu.notesapp.model.Notes
@@ -66,6 +67,7 @@ class CreateNotesFragment : Fragment() {
         viewModel.addNotes(notes)
         Toast.makeText(requireContext(), "Notes Created Successfully", Toast.LENGTH_SHORT).show()
 
+        Navigation.findNavController(it!!).navigate(R.id.action_createNotesFragment_to_homeFragment)
 
     }
 }

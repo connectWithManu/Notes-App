@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
 import com.manu.notesapp.R
+import com.manu.notesapp.adapter.NotesAdapter
 import com.manu.notesapp.databinding.FragmentHomeBinding
 import com.manu.notesapp.viewmodel.NotesViewModel
 
@@ -31,9 +33,9 @@ class HomeFragment : Fragment() {
         }
 
         notesViewModel.getNotes().observe(viewLifecycleOwner) {noteList ->
-            for( i in noteList) {
-                Log.e("TAG", "onViewCreated: ${i.id}", )
-            }
+            binding.recycleAllNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+
+            binding.recycleAllNotes.adapter = NotesAdapter(requireContext(), noteList)
 
         }
 

@@ -9,7 +9,7 @@ import com.manu.notesapp.room.NotesDatabase
 
 class NotesViewModel(application: Application): AndroidViewModel(application) {
 
-    lateinit var repository: NotesRepository
+    var repository: NotesRepository
 
     init {
         val dao = NotesDatabase.getDatabaseInstance(application).myNotesDao()

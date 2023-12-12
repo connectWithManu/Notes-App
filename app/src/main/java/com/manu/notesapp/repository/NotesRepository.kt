@@ -5,9 +5,8 @@ import com.manu.notesapp.model.Notes
 import com.manu.notesapp.room.NotesDao
 
 class NotesRepository(private val dao: NotesDao) {
-    fun getAllNotes(): LiveData<List<Notes>> {
-        return dao.getNotes()
-    }
+    fun getAllNotes(): LiveData<List<Notes>> = dao.getNotes()
+
 
     fun getLowNotes(): LiveData<List<Notes>> = dao.getLowNotes()
     fun getMediumNotes(): LiveData<List<Notes>> = dao.getMediumNotes()

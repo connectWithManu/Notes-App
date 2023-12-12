@@ -55,7 +55,31 @@ class CreateNotesFragment : Fragment() {
             binding.red.setImageResource(0)
             binding.green.setImageResource(0)
         }
+
+        binding.red.setOnClickListener {
+            priority = "3"
+            binding.red.setImageResource(R.drawable.baseline_done_24)
+            binding.yellow.setImageResource(0)
+            binding.green.setImageResource(0)
+        }
+        binding.green.setOnClickListener {
+            priority = "1"
+            binding.green.setImageResource(R.drawable.baseline_done_24)
+            binding.yellow.setImageResource(0)
+            binding.red.setImageResource(0)
+        }
+        binding.yellow.setOnClickListener {
+            priority = "2"
+            binding.yellow.setImageResource(R.drawable.baseline_done_24)
+            binding.red.setImageResource(0)
+            binding.green.setImageResource(0)
+        }
+
+
+
     }
+
+
 
     private fun createNotes(it: View?) {
         val title = binding.entertitle.text.toString()

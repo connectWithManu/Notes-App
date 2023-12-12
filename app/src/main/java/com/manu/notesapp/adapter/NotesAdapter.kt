@@ -3,9 +3,11 @@ package com.manu.notesapp.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.manu.notesapp.R
 import com.manu.notesapp.databinding.ItemNotesBinding
+import com.manu.notesapp.fragments.HomeFragmentDirections
 import com.manu.notesapp.model.Notes
 
 class NotesAdapter(val context: Context, val notesList: List<Notes>): RecyclerView.Adapter<NotesAdapter.NotesVH>() {
@@ -38,6 +40,11 @@ class NotesAdapter(val context: Context, val notesList: List<Notes>): RecyclerVi
                 holder.binding.prirority.setBackgroundResource(R.drawable.red)
             }
 
+        }
+
+        holder.binding.root.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToEditNotesFragment(item)
+            Navigation.findNavController(it).navigate(action)
         }
     }
 }

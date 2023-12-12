@@ -9,6 +9,10 @@ class NotesRepository(private val dao: NotesDao) {
         return dao.getNotes()
     }
 
+    fun getLowNotes(): LiveData<List<Notes>> = dao.getLowNotes()
+    fun getMediumNotes(): LiveData<List<Notes>> = dao.getMediumNotes()
+    fun getHighNotes(): LiveData<List<Notes>> = dao.getHighNotes()
+
     fun insetNotes(notes: Notes) {
         dao.insertNotes(notes)
     }
@@ -20,6 +24,8 @@ class NotesRepository(private val dao: NotesDao) {
     fun updateNotes(notes: Notes) {
         dao.updateNotes(notes)
     }
+
+
 
 
 }

@@ -33,9 +33,40 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_createNotesFragment)
         }
 
+        binding.low.setOnClickListener {
+            notesViewModel.getLowNotes().observe(viewLifecycleOwner) {noteList ->
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                binding.recycleAllNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+            }
+        }
+
+        binding.high.setOnClickListener {
+            notesViewModel.getHighNotes().observe(viewLifecycleOwner) {noteList ->
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                binding.recycleAllNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+            }
+        }
+
+        binding.medium.setOnClickListener {
+            notesViewModel.getMediumNotes().observe(viewLifecycleOwner) {noteList ->
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                binding.recycleAllNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+            }
+        }
+
+        binding.getall.setOnClickListener {
+            notesViewModel.getNotes().observe(viewLifecycleOwner) {noteList ->
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                binding.recycleAllNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+            }
+        }
+
         notesViewModel.getNotes().observe(viewLifecycleOwner) {noteList ->
             binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-
             binding.recycleAllNotes.adapter = NotesAdapter(requireContext(), noteList)
 
         }

@@ -46,6 +46,7 @@ class HomeFragment : Fragment() {
             notesViewModel.getLowNotes().observe(viewLifecycleOwner) {noteList ->
                 oldNotes.addAll(noteList)
                 adapter = NotesAdapter(requireContext(), noteList)
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 binding.recycleAllNotes.adapter = adapter
 
             }
@@ -55,6 +56,7 @@ class HomeFragment : Fragment() {
             notesViewModel.getHighNotes().observe(viewLifecycleOwner) {noteList ->
                 oldNotes.addAll(noteList)
                 adapter = NotesAdapter(requireContext(), noteList)
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 binding.recycleAllNotes.adapter = adapter
 
             }
@@ -64,6 +66,7 @@ class HomeFragment : Fragment() {
             notesViewModel.getMediumNotes().observe(viewLifecycleOwner) {noteList ->
                 oldNotes.addAll(noteList)
                 adapter = NotesAdapter(requireContext(), noteList)
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 binding.recycleAllNotes.adapter = adapter
 
             }
@@ -73,6 +76,7 @@ class HomeFragment : Fragment() {
             notesViewModel.getNotes().observe(viewLifecycleOwner) {noteList ->
                 oldNotes.addAll(noteList)
                 adapter = NotesAdapter(requireContext(), noteList)
+                binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 binding.recycleAllNotes.adapter = adapter
 
             }
@@ -81,6 +85,7 @@ class HomeFragment : Fragment() {
         notesViewModel.getNotes().observe(viewLifecycleOwner) {noteList ->
             oldNotes.addAll(noteList)
             adapter = NotesAdapter(requireContext(), noteList)
+            binding.recycleAllNotes.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             binding.recycleAllNotes.adapter = adapter
 
         }
